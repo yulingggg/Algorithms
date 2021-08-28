@@ -18,9 +18,6 @@ buildscript {
   }
 }
 
-// Apply plugin for sonarqube
-apply plugin: 'org.sonarqube'
-
 // Require Java 8
 version = '0.0.1'
 sourceCompatibility = 1.8
@@ -90,13 +87,3 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
-
-sonarqube {
-    properties {
-        property 'sonar.projectKey', 'yulingggg_Algorithms'
-    }
-}
-
-tasks.named('sonarqube').configure {
-    dependsOn test
-}
