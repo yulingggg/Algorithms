@@ -12,10 +12,6 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 addons:
-  sonarcloud:
-     organization: "yulingggg"
-     token:
-       secure: $SONAR_TOKEN
   apt:
     packages:
       - oracle-java8-installer
