@@ -42,6 +42,27 @@ public class BinarySearch {
 
     return mid;
   }
+  
+  // Second binary search method used to find the position of target value in a sorted array
+  public static int binarySearchPosition(int arr[], int l, int r, int x) {
+	  if (r >= l) {
+          int mid = l + (r - l) / 2;
+
+          // If the element is the middle itself
+          if (arr[mid] == x)
+              return mid;
+
+          // If element is smaller than middle (left sub-array)
+          if (arr[mid] > x)
+              return binarySearchPosition(arr, l, mid - 1, x);
+       
+          // Else the element is larger than middle (right sub-array)
+          return binarySearchPosition(arr, mid + 1, r, x);
+      }
+
+      // When the element is not found in array
+      return -1;
+  }
 
   public static void main(String[] args) {
 
@@ -82,5 +103,17 @@ public class BinarySearch {
         binarySearch(radiusLowerBound, radiusUpperBound, volume, sphereVolumeFunction);
 
     System.out.printf("Sphere radius = %.5fm\n", sphereRadius);
+    
+    // EXAMPLE #3
+    // Suppose we want to find the position of a target value within a sorted array
+    // BS compares the target value to the middle element of the array
+    int arr[] = {2,3,4,9,10,20,34,40};
+    int n = arr.length;
+    int x = 10;
+    int result = BinarySearch.binarySearchPosition(arr, 0, n - 1, x);
+    if (result == -1)
+        System.out.println("Element not found");
+    else
+        System.out.println("The Element at index " + result);
   }
 }
