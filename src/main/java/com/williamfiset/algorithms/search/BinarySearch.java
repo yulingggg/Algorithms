@@ -115,5 +115,6 @@ public class BinarySearch {
         System.out.println("Element not found");
     else
         System.out.println("The Element at index " + result);
+	  
   }
 }
