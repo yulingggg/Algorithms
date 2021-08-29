@@ -8,17 +8,16 @@ jdk:
 
 sudo: false
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
 addons:
   apt:
     packages:
       - oracle-java8-installer
   
-
 script:
   - ./gradlew googleJavaFormat
   - ./gradlew build
   - ./gradlew test 
   - ./gradlew jacocoTestReport
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
